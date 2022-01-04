@@ -22,7 +22,12 @@ jobs:
         
       - name: Install dependencies
         run: |
-          poetry install
+          poetry install pylint
+          poetry install bandit
+          poetry install isort
+          poetry install safety
+          poetry install black
+          poetry install semgrep
       
       - name: pylint
         run: |
