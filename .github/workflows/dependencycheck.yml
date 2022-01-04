@@ -20,36 +20,51 @@ jobs:
         run: |
           pip install poetry
         
-      - name: Install dependencies
+      - name: Install pylint
         run: |
           poetry install pylint
-          poetry install bandit
-          poetry install isort
-          poetry install safety
-          poetry install black
-          poetry install semgrep
       
       - name: pylint
         run: |
           poetry run pylint ./dataacquisition/
           poetry run pylint ./tests/
           
+      - name: Install bandit
+        run: |
+          poetry install bandit
+          
       - name: bandit
         run: |
           poetry run bandit -r /dataacquisition/
           poetry run bandit -r /tests/
           
+      - name: Install isort
+        run: |
+          poetry install isort
+          
       - name: isort
         run: |
           poetry run isort . -v
-          
+
+      - name: Install safety
+        run: |
+          poetry install safety
+
       - name: safety
         run: |
           poetry run safety check
           
+      - name: Install black
+        run: |
+          poetry install black
+          
       - name: black
         run: |
           poetry run black --diff .
+      
+      - name: Install semgrep
+        run: |
+          poetry install semgrep
       
       - name: semgrep
         run: |
