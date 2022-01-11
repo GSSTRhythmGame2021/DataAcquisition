@@ -1,5 +1,6 @@
 """analyzes given spotify song"""
 import os
+from numpy import double
 import spotipy
 from dotenv import load_dotenv
 import pandas as pd
@@ -17,13 +18,13 @@ def analysis_func(track: str,spot_auth) -> any:
     analysis = spot_auth.audio_analysis(track)
     # features = spot_auth.audio_features(track)
     # features_df = pd.DataFrame(data=features, columns=features[0].keys())
-    #beats_df = pd.DataFrame(data=analysis["beats"])
+    # beats_df = pd.DataFrame(data=analysis["beats"])
     segments_df = pd.DataFrame(data=analysis["segments"])
     # bars_df = pd.DataFrame(data=analysis["bars"])
     # tatums_df = pd.DataFrame(data=analysis["tatums"])
     return segments_df
 
-def beatmaker(segments):
+def beatmaker(segments) -> any:
     """appends the osu file with data"""
     seg_start = segments["start"]
     seg_pitch = segments["pitches"]
@@ -31,28 +32,34 @@ def beatmaker(segments):
         for index, _ in segments.iterrows():
             pitchavg = pitchaverage(seg_pitch[index])
             print(pitchcat(pitchavg),",192,",seg_start[index]*1000,",5,4,0:0:0:0:\n", sep='')
-            beatmap.write("256,192,"+ str(seg_start[index]*1000) +",5,4,0:0:0:0:\n")
+            beatmap.write(str(pitchcat(pitchavg))+",192,"+ str(seg_start[index]*1000) +",5,4,0:0:0:0:\n")
 
-def pitchaverage(seg_pitch):
+def pitchaverage(seg_pitch) -> double:
     """averages all piches in a section"""
-    temp = 0
+    ret: double = 0
     for index in range( len(seg_pitch)):
-        temp += seg_pitch[index]
-    temp /= len(seg_pitch)-1
-    print(temp)
-    return temp
+        ret += seg_pitch[index]
+    ret /= len(seg_pitch)-1
+    return ret
 
-def pitchcat(pitchavg):
+def pitchcat(pitchavg) -> int:
     """catagorizes pitches into four groups"""
+    # values are set to four button osu mania defults
+    FARLEFT: int = 128
+    CENTLEFT: int = 256
+    CENTRIGHT: int = 384
+    FARRIGHT: int = 512
+    ret: int
+    # pitch ranges are guesstimations and can be optimised for better distribution
     if(pitchavg < 0.3):
-        temp = 128
+        ret = FARLEFT
     elif(pitchavg < 0.4):
-        temp = 256
+        ret = CENTLEFT
     elif(pitchavg < 0.5):
-        temp = 384
+        ret = CENTRIGHT
     else:
-        temp = 512
-    return temp
+        ret = FARRIGHT
+    return ret
 
 def main():
     """declared variables and calls other funvtions"""
