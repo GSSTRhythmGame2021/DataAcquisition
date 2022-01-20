@@ -31,8 +31,10 @@ def beatmaker(segments) -> any:
     with open("ManiaTest.osu", 'a', encoding="utf-8") as beatmap:
         for index, _ in segments.iterrows():
             pitchavg = pitchaverage(seg_pitch[index])
-            print(pitchcat(pitchavg),",192,",seg_start[index]*1000,",5,4,0:0:0:0:\n", sep='')
-            beatmap.write(str(pitchcat(pitchavg))+",192,"+ str(seg_start[index]*1000) +",5,4,0:0:0:0:\n")
+            print(pitchcat(pitchavg),",192,",
+                    seg_start[index]*1000,",5,4,0:0:0:0:\n", sep='')
+            beatmap.write(str(pitchcat(pitchavg))+",192,"
+                    + str(seg_start[index]*1000) +",5,4,0:0:0:0:\n")
 
 def pitchaverage(seg_pitch) -> double:
     """averages all piches in a section"""
@@ -45,20 +47,20 @@ def pitchaverage(seg_pitch) -> double:
 def pitchcat(pitchavg) -> int:
     """catagorizes pitches into four groups"""
     # values are set to four button osu mania defults
-    FARLEFT: int = 128
-    CENTLEFT: int = 256
-    CENTRIGHT: int = 384
-    FARRIGHT: int = 512
+    farLeft: int = 128
+    centLeft: int = 256
+    centRight: int = 384
+    farRight: int = 512
     ret: int
     # pitch ranges are guesstimations and can be optimised for better distribution
-    if(pitchavg < 0.3):
-        ret = FARLEFT
-    elif(pitchavg < 0.4):
-        ret = CENTLEFT
-    elif(pitchavg < 0.5):
-        ret = CENTRIGHT
+    if pitchavg < 0.3:
+        ret = farLeft
+    elif pitchavg < 0.4:
+        ret = centLeft
+    elif pitchavg < 0.5:
+        ret = centRight
     else:
-        ret = FARRIGHT
+        ret = farRight
     return ret
 
 def main():
