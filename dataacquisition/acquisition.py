@@ -41,7 +41,7 @@ def pitchaverage(seg_pitch) -> double:
     ret: double = 0
     for index, value in enumerate(seg_pitch):
         ret += value
-    ret /= len(seg_pitch)-1
+    ret /= index
     return ret
 
 def pitchcat(pitchavg) -> int:
