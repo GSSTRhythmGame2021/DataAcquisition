@@ -47,20 +47,20 @@ def pitchaverage(seg_pitch) -> double:
 def pitchcat(pitchavg) -> int:
     """catagorizes pitches into four groups"""
     # values are set to four button osu mania defults
-    farLeft: int = 128
-    centLeft: int = 256
-    centRight: int = 384
-    farRight: int = 512
+    far_left: int = 128
+    cent_left: int = 256
+    cent_right: int = 384
+    far_right: int = 512
     ret: int
     # pitch ranges are guesstimations and can be optimised for better distribution
     if pitchavg < 0.3:
-        ret = farLeft
+        ret = far_left
     elif pitchavg < 0.4:
-        ret = centLeft
+        ret = cent_left
     elif pitchavg < 0.5:
-        ret = centRight
+        ret = cent_right
     else:
-        ret = farRight
+        ret = far_right
     return ret
 
 def main():
