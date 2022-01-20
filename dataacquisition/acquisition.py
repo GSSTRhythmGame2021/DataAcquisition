@@ -70,7 +70,7 @@ def main():
     cid: str | None = os.environ.get("CLIENT_ID")
     secret: str | None = os.environ.get("CLIENT_SECRET")
 
-    if cid == None or secret == None:
+    if cid is None or secret is None:
         print("Configure your environment variables")
         return
 
