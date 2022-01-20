@@ -39,9 +39,9 @@ def beatmaker(segments) -> any:
 def pitchaverage(seg_pitch) -> double:
     """averages all piches in a section"""
     ret: double = 0
-    for index, value in enumerate(seg_pitch):
+    for _, value in enumerate(seg_pitch):
         ret += value
-    ret /= index
+    ret /= len(seg_pitch)-1
     return ret
 
 def pitchcat(pitchavg) -> int:
