@@ -31,8 +31,8 @@ jobs:
           
       - name: bandit
         run: |
-          poetry run bandit -r /dataacquisition/
-          poetry run bandit -r /tests/
+          poetry run bandit -r ./dataacquisition/
+          poetry run bandit -r ./tests/
           
       - name: isort
         run: |
