@@ -67,9 +67,10 @@ def pitchcat(pitchavg) -> int:
 def main():
     """declared variables and calls other funvtions"""
     load_dotenv()
-    cid: str | None = os.environ.get("CLIENT_ID")
-    secret: str | None = os.environ.get("CLIENT_SECRET")
-
+    cid: str | None
+    cid = os.environ.get("CLIENT_ID")
+    secret: str | None
+    secret = os.environ.get("CLIENT_SECRET")
     if cid is None or secret is None:
         print("Configure your environment variables")
         return
