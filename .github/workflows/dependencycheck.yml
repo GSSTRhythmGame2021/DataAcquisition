@@ -15,6 +15,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+          architecture: 'x64'
       
       - name: Install poetry
         run: |
@@ -36,7 +40,7 @@ jobs:
           
       - name: isort
         run: |
-          poetry run isort . -v
+          poetry run isort . -v -c
           
       - name: safety
         run: |
@@ -44,9 +48,9 @@ jobs:
           
       - name: black
         run: |
-          poetry run black --diff .
+          poetry run black --diff --check .
       
       - name: semgrep
         run: |
-          poetry run semgrep --config auto .
+          poetry run semgrep --config auto --error .
 
