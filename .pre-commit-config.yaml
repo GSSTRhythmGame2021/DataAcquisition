@@ -1,3 +1,4 @@
+fail_fast: true
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.1.0
@@ -9,37 +10,40 @@ repos:
     -   id: trailing-whitespace
         stages : [commit]
     -   id: check-case-conflict
-        stages : [commit]
-    
--   repo: https://github.com/psf/black
-    rev: 21.12b0
+-   repo: local
     hooks:
     -   id: black
-        stages: [push]
--   repo: https://github.com/pycqa/pylint
-    rev: pylint-2.12.2
+        exclude: .pre-commit-config.yaml|poetry.lock
+        name: Black
+        entry: poetry run black --diff .
+        language: system
+-   repo: local
     hooks:
     -   id: pylint
-        stages: [push]
--   repo: https://github.com/PyCQA/bandit
-    rev: 1.7.0
+        name: Pylint
+        entry: poetry run pylint ./dataacquisition/ && poetry run pylint ./tests/
+        language: system
+-   repo: local
     hooks:
     -   id: bandit
-        stages: [push]
--   repo: https://github.com/pycqa/isort
-    rev: 5.10.1
+        name: Bandit
+        entry: poetry run bandit -r ./dataacquisition/ && poetry run bandit -r ./tests/
+        language: system
+-   repo: local
     hooks:
-      - id: isort
-        name: isort (python)
-        stages: [push]
--   repo: https://github.com/Lucas-C/pre-commit-hooks-safety
-    rev: v1.2.2
+    -   id: isort
+        name: Isort
+        entry: poetry run isort . -v
+        language: system
+-   repo: local
     hooks:
-    -   id: python-safety-dependencies-check
-        stages: [push]
--   repo: https://github.com/returntocorp/semgrep
-  rev: 'v0.77.0'
-  hooks:
-    - id: semgrep
-      args: ['--config', 'https://semgrep.dev/p/ci', '--error', '--skip-unknown-extensions']
-      stages: [push]
+    -   id: safety
+        name: Safety
+        entry: poetry run safety check
+        language: system
+-   repo: local
+    hooks:
+    -   id: semgrep
+        name: Semgrep
+        entry: poetry run semgrep --config auto .
+        language: system
