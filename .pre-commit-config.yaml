@@ -13,6 +13,7 @@ repos:
 -   repo: local
     hooks:
     -   id: black
+        stages: [push]
         exclude: .pre-commit-config.yaml | poetry.lock
         name: Black
         entry: poetry run black --diff .
@@ -20,30 +21,35 @@ repos:
 -   repo: local
     hooks:
     -   id: pylint
+        stages: [push]
         name: Pylint
         entry: poetry run pylint ./dataacquisition/ && poetry run pylint ./tests/
         language: system
 -   repo: local
     hooks:
     -   id: bandit
+        stages: [push]
         name: Bandit
         entry: poetry run bandit -r ./dataacquisition/ && poetry run bandit -r ./tests/
         language: system
 -   repo: local
     hooks:
     -   id: isort
+        stages: [push]
         name: Isort
         entry: poetry run isort . -v
         language: system
 -   repo: local
     hooks:
     -   id: safety
+        stages: [push]
         name: Safety
         entry: poetry run safety check
         language: system
 -   repo: local
     hooks:
     -   id: semgrep
+        stages: [push]
         name: Semgrep
         entry: poetry run semgrep --config auto .
         language: system
