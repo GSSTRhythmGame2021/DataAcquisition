@@ -16,7 +16,7 @@ repos:
         stages: [push]
         exclude: .pre-commit-config.yaml | poetry.lock
         name: Black
-        entry: poetry run black --diff .
+        entry: poetry run black --diff --check .
         language: system
 -   repo: local
     hooks:
@@ -37,7 +37,7 @@ repos:
     -   id: isort
         stages: [push]
         name: Isort
-        entry: poetry run isort . -v
+        entry: poetry run isort . -v -c
         language: system
 -   repo: local
     hooks:
@@ -51,5 +51,5 @@ repos:
     -   id: semgrep
         stages: [push]
         name: Semgrep
-        entry: poetry run semgrep --config auto .
+        entry: poetry run semgrep --config auto --error .
         language: system
