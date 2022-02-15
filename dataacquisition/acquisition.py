@@ -1,20 +1,22 @@
 """analyzes given spotify song"""
 import os
+
+import pandas as pd
 import spotipy
 from dotenv import load_dotenv
-import pandas as pd
 from spotipy.oauth2 import SpotifyClientCredentials
 
-def authentication(cid: str,secret: str):
+
+def authentication(cid: str, secret: str):
     """Sets up the client authentication"""
     client_credentials_manager = SpotifyClientCredentials(
-            client_id=cid,
-            client_secret=secret
-            )
+        client_id=cid, client_secret=secret
+    )
     spot_auth = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
     return spot_auth
 
-def analysis_func(track: str,spot_auth) -> pd.DataFrame:
+
+def analysis_func(track: str, spot_auth) -> pd.DataFrame:
     """analyses the trck useing the spotify api"""
     analysis = spot_auth.audio_analysis(track)
     # features = spot_auth.audio_features(track)
@@ -25,25 +27,37 @@ def analysis_func(track: str,spot_auth) -> pd.DataFrame:
     # tatums_df = pd.DataFrame(data=analysis["tatums"])
     return segments_df
 
+
 def beatmaker(segments) -> None:
     """appends the osu file with data"""
     seg_start = segments["start"]
     seg_pitch = segments["pitches"]
-    with open("ManiaTest.osu", 'a', encoding="utf-8") as beatmap:
+    with open("ManiaTest.osu", "a", encoding="utf-8") as beatmap:
         for index, _ in segments.iterrows():
             pitchavg = pitchaverage(seg_pitch[index])
-            print(pitchcat(pitchavg),",192,",
-                    seg_start[index]*1000,",5,4,0:0:0:0:\n", sep='')
-            beatmap.write(str(pitchcat(pitchavg))+",192,"
-                    + str(seg_start[index]*1000) +",5,4,0:0:0:0:\n")
+            print(
+                pitchcat(pitchavg),
+                ",192,",
+                seg_start[index] * 1000,
+                ",5,4,0:0:0:0:\n",
+                sep="",
+            )
+            beatmap.write(
+                str(pitchcat(pitchavg))
+                + ",192,"
+                + str(seg_start[index] * 1000)
+                + ",5,4,0:0:0:0:\n"
+            )
+
 
 def pitchaverage(seg_pitch) -> float:
-    """averages all piches in a section"""
+    """averages all pitches in a section"""
     ret: float = 0.0
     for _, value in enumerate(seg_pitch):
         ret += value
-    ret /= len(seg_pitch)-1
+    ret /= len(seg_pitch) - 1
     return ret
+
 
 def pitchcat(pitchavg) -> int:
     """catagorizes pitches into four groups"""
@@ -64,6 +78,7 @@ def pitchcat(pitchavg) -> int:
         ret = far_right
     return ret
 
+
 def main():
     """declared variables and calls other funvtions"""
     load_dotenv()
@@ -75,11 +90,12 @@ def main():
         print("Configure your environment variables")
         return
 
-    spot_auth = authentication(cid,secret)
+    spot_auth = authentication(cid, secret)
 
     track = "spotify:track:6yIjtVtnOBeC8SwdVHzAuF"
-    segments = analysis_func(track,spot_auth)
+    segments = analysis_func(track, spot_auth)
     beatmaker(segments)
+
 
 if __name__ == "__main__":
     main()
