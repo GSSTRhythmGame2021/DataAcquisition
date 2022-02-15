@@ -80,19 +80,21 @@ def pitchcat(pitchavg) -> int:
 
 
 def main():
-    """declared variables and calls other funvtions"""
+    """declares variables and calls other funvtions"""
     load_dotenv()
     cid: str | None
     cid = os.environ.get("CLIENT_ID")
     secret: str | None
     secret = os.environ.get("CLIENT_SECRET")
-    if cid is None or secret is None:
+    track: str | None
+    track = os.environ.get("TRACK_ID")
+
+    if cid is None or secret is None or track is None:
         print("Configure your environment variables")
         return
 
     spot_auth = authentication(cid, secret)
 
-    track = "spotify:track:6yIjtVtnOBeC8SwdVHzAuF"
     segments = analysis_func(track, spot_auth)
     beatmaker(segments)
 
