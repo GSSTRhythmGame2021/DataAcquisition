@@ -44,7 +44,7 @@ jobs:
           
       - name: safety
         run: |
-          poetry run safety check --full-report
+          poetry run safety check -i 44715 --full-report
           
       - name: black
         run: |
