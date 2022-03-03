@@ -19,7 +19,7 @@ black = "^21.10b0"
 isort = "^5.10.1"
 pylint = "^2.11.1"
 safety = "^1.10.3"
-semgrep = "^0.76.2"
+semgrep = "^0.83.0"
 mypy = "^0.931"
 
 [tool.isort]

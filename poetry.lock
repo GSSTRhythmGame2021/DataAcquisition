@@ -584,24 +584,24 @@ requests = "*"
 
 [[package]]
 name = "semgrep"
-version = "0.76.2"
+version = "0.83.0"
 description = "Lightweight static analysis for many languages. Find bug variants with patterns that look like source code."
 category = "dev"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.7"
 
 [package.dependencies]
-attrs = ">=19.3.0"
-click = ">=8.0.1"
-click-option-group = ">=0.5.3"
-colorama = ">=0.4.3"
-jsonschema = ">=3.2.0,<3.3.0"
-packaging = ">=20.4"
-peewee = ">=3.14.4,<3.15.0"
-requests = ">=2.22.0"
+attrs = ">=21.0,<22.0"
+click = ">=8.0,<9.0"
+click-option-group = ">=0.5,<1.0"
+colorama = ">=0.4.0,<0.5.0"
+jsonschema = ">=3.2,<4.0"
+packaging = ">=21.0,<22.0"
+peewee = ">=3.14,<4.0"
+requests = ">=2.22,<3.0"
 "ruamel.yaml" = ">=0.16.0,<0.18"
-tqdm = ">=4.46.1"
-wcmatch = "8.2"
+tqdm = ">=4.46,<5.0"
+wcmatch = ">=8.3,<9.0"
 
 [[package]]
 name = "setuptools-scm"
@@ -718,7 +718,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
 [[package]]
 name = "wcmatch"
-version = "8.2"
+version = "8.3"
 description = "Wildcard/glob file name matcher."
 category = "dev"
 optional = false
@@ -738,7 +738,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "9692d9305a7aad1b0ccf703fc381bb26acde48d655a3aeff225b21ce02520b72"
+content-hash = "da3ebc7d758615568ebdb3746b40bc99f4a786d61bcbc28956c5a7846a34a93f"
 
 [metadata.files]
 astroid = [
@@ -1207,9 +1207,9 @@ safety = [
     {file = "safety-1.10.3.tar.gz", hash = "sha256:30e394d02a20ac49b7f65292d19d38fa927a8f9582cdfd3ad1adbbc66c641ad5"},
 ]
 semgrep = [
-    {file = "semgrep-0.76.2-cp36.cp37.cp38.cp39.py36.py37.py38.py39-none-any.whl", hash = "sha256:f2cf21b9d2145148ccf7dfef4cab6a627db779a88780631d88074a04f6e46b60"},
-    {file = "semgrep-0.76.2-cp36.cp37.cp38.cp39.py36.py37.py38.py39-none-macosx_10_14_x86_64.whl", hash = "sha256:0e84fbdf2aa54922bd5feeff39944ff62d22a9a8a956352670c02224c60de93c"},
-    {file = "semgrep-0.76.2.tar.gz", hash = "sha256:f526e94c3a2d5be23557490861c5e0175f907547aa71c04e943a05c7a3fdb34d"},
+    {file = "semgrep-0.83.0-cp37.cp38.cp39.py37.py38.py39-none-any.whl", hash = "sha256:b44dbd7edaf114dac8532978957edf13ae29f879d38f8e9939429b5c29669f5a"},
+    {file = "semgrep-0.83.0-cp37.cp38.cp39.py37.py38.py39-none-macosx_10_14_x86_64.whl", hash = "sha256:02efed12e3c9111aab777269630df54bbb7ae286c1af87b1e2639767df7e66a6"},
+    {file = "semgrep-0.83.0.tar.gz", hash = "sha256:e2e60d37d1f2f27a63d93693ec01dba6e3876fed0ec8144a296c1fa7770d983a"},
 ]
 setuptools-scm = [
     {file = "setuptools_scm-6.4.2-py3-none-any.whl", hash = "sha256:acea13255093849de7ccb11af9e1fb8bde7067783450cee9ef7a93139bddf6d4"},
@@ -1253,8 +1253,8 @@ urllib3 = [
     {file = "urllib3-1.26.8.tar.gz", hash = "sha256:0e7c33d9a63e7ddfcb86780aac87befc2fbddf46c58dbb487e0855f7ceec283c"},
 ]
 wcmatch = [
-    {file = "wcmatch-8.2-py3-none-any.whl", hash = "sha256:9146b1ab9354e0797ef6ef69bc89cb32cb9f46d1b9eeef69c559aeec8f3bffb6"},
-    {file = "wcmatch-8.2.tar.gz", hash = "sha256:4d54ddb506c90b5a5bba3a96a1cfb0bb07127909e19046a71d689ddfb18c3617"},
+    {file = "wcmatch-8.3-py3-none-any.whl", hash = "sha256:7141d2c85314253f16b38cb3d6cc0fb612918d407e1df3ccc2be7c86cc259c22"},
+    {file = "wcmatch-8.3.tar.gz", hash = "sha256:371072912398af61d1e4e78609e18801c6faecd3cb36c54c82556a60abc965db"},
 ]
 wrapt = [
     {file = "wrapt-1.13.3-cp27-cp27m-macosx_10_9_x86_64.whl", hash = "sha256:e05e60ff3b2b0342153be4d1b597bbcfd8330890056b9619f4ad6b8d5c96a81a"},
