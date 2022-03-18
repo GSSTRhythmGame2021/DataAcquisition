@@ -13,7 +13,7 @@ python-dotenv = "^0.19.2"
 pandas-stubs = "^1.2.0"
 
 [tool.poetry.dev-dependencies]
-pytest = "^7.0"
+pytest = "^7.1"
 bandit = "^1.7.2"
 black = "^21.10b0"
 isort = "^5.10.1"
