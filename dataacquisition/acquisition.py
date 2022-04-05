@@ -32,7 +32,7 @@ def beatmaker(segments) -> None:
     """appends the osu file with data"""
     seg_start = segments["start"]
     seg_pitch = segments["pitches"]
-    with open("Varied - Spotify Beatmap Generation (Skelly57) [Normal].osu", "a", encoding="utf-8") as beatmap:
+    with open("Varied - SBG (Skelly57) [Normal].osu", "a", encoding="utf-8") as beatmap:
         beatmap.write(
             "osu file format v14\n"
             "\n"
