@@ -147,7 +147,7 @@ def main():
 
     spot_auth = authentication(cid, secret)
 
-    track = "spotify:track:6yIjtVtnOBeC8SwdVHzAuF"
+    track = "spotify:track:6cUCckpdlqHJ5Ascf2uH2A"
     segments = analysis_func(track, spot_auth)
     beatmaker(segments)
 
