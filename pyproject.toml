@@ -11,6 +11,8 @@ matplotlib = "^3.4.3"
 spotipy = "^2.19.0"
 python-dotenv = "^0.19.2"
 pandas-stubs = "^1.2.0"
+sh = "^1.14.2"
+PyAutoGUI = "^0.9.53"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
