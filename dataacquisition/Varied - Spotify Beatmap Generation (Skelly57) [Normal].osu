@@ -1,56 +1,57 @@
-osu file format v14 
+osu file format v14
 
-[General] 
-AudioFilename: audio.mp3 
-AudioLeadIn: 0 
-PreviewTime: -1 
-Countdown: 0 
-SampleSet: Normal 
-StackLeniency: 0.7 
-Mode: 0 
-LetterboxInBreaks: 0 
-WidescreenStoryboard: 0 
+[General]
+AudioFilename: audio.mp3
+AudioLeadIn: 0
+PreviewTime: -1
+Countdown: 0
+SampleSet: Normal
+StackLeniency: 0.7
+Mode: 0
+LetterboxInBreaks: 0
+WidescreenStoryboard: 0
 
-[Editor] 
-DistanceSpacing: 0.8 
-BeatDivisor: 1 
-GridSize: 32 
-TimelineZoom: 1 
+[Editor]
+DistanceSpacing: 0.8
+BeatDivisor: 1
+GridSize: 32
+TimelineZoom: 1
 
-[Metadata] 
-Title:Spotify Beatmap Generation 
-TitleUnicode:Spotify Beatmap Generation 
-Artist:Varied 
-ArtistUnicode:Varied 
-Creator:Skelly57 
-Version:Easy 
-Source: 
-Tags: 
-BeatmapID:0 
-BeatmapSetID:-1 
+[Metadata]
+Title:Spotify Beatmap Generation
+TitleUnicode:Spotify Beatmap Generation
+Artist:Varied
+ArtistUnicode:Varied
+Creator:Skelly57
+Version:Normal
+Source:
+Tags:
+BeatmapID:0
+BeatmapSetID:-1
 
-[Difficulty} 
-HPDrainRate:5 
-CircleSize:5 
-OverallDifficulty:5 
-ApproachRate:5 
-SliderMultiplier:1.4 
-SLiderTickRate:1 
+[Difficulty}
+HPDrainRate:5
+CircleSize:5
+OverallDifficulty:5
+ApproachRate:5
+SliderMultiplier:1.4
+SLiderTickRate:1
 
-[Events] 
-//Background and Video events 
-//Break Periods 
-//Storyboard Layer 0 (Background) 
-//Storyboard Layer 1 (Fail) 
-//Storyboard Layer 2 (Pass) 
-//Storyboard Layer 3 (Foreground) 
-//Storyboard Layer 4 (Overlay) 
-//Storyboard Sound Samples 
+[Events]
+//Background and Video events
+//Break Periods
+//Storyboard Layer 0 (Background)
+//Storyboard Layer 1 (Fail)
+//Storyboard Layer 2 (Pass)
+//Storyboard Layer 3 (Foreground)
+//Storyboard Layer 4 (Overlay)
+//Storyboard Sound Samples
 
-[TimingPoints] 
-0,500,4,1,0,100,1,0 
+[TimingPoints]
+0,500,4,1,0,100,1,0
 
-[HitObjects] 
+
+[HitObjects]
 128,192,0.0,5,4,0:0:0:0:
 512,192,499.46000000000004,5,4,0:0:0:0:
 512,192,640.95,5,4,0:0:0:0:
