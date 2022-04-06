@@ -3,8 +3,6 @@ import pyautogui, sys
 import time
 
 def automate_maniac():
-
-    os.system('poetry run python3 dataacquuisition/acquisition.py')
     version = "osu!(lazer)"
     os.chdir('C:\\Users\\pd\\Desktop')
     if version == "osu!":
