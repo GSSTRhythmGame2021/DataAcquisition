@@ -32,7 +32,7 @@ def beatmaker(segments) -> None:
     """appends the osu file with data"""
     seg_start = segments["start"]
     seg_pitch = segments["pitches"]
-    with open("Varied - SBG (Skelly57) [Normal].osu", "a", encoding="utf-8") as beatmap:
+    with open("Varied - SBG (beyondtherice) [Normal].osu", "a", encoding="utf-8") as beatmap:
         beatmap.write(
             "osu file format v14\n"
             "\n"
@@ -58,7 +58,7 @@ def beatmaker(segments) -> None:
             "TitleUnicode:Spotify Beatmap Generation\n"
             "Artist:Varied\n"
             "ArtistUnicode:Varied\n"
-            "Creator:Skelly57\n"  # default creator, can change to group name later
+            "Creator:beyondtherice\n"  # default creator, can change to group name later
             "Version:Normal\n"
             "Source:\n"
             "Tags:\n"
@@ -147,7 +147,7 @@ def main():
 
     spot_auth = authentication(cid, secret)
 
-    track = "spotify:track:6cUCckpdlqHJ5Ascf2uH2A"
+    track = "spotify:track:4NsPgRYUdHu2Q5JRNgXYU5"
     segments = analysis_func(track, spot_auth)
     beatmaker(segments)
 
