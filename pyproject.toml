@@ -22,7 +22,7 @@ isort = "^5.10.1"
 pylint = "^2.11.1"
 safety = "^1.10.3"
 semgrep = "^0.76.2"
-mypy = "^0.931"
+mypy = "^0.971"
 
 [tool.isort]
 profile = "black"
